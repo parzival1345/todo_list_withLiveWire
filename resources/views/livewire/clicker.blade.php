@@ -4,25 +4,19 @@
     @endif
     <form wire:submit="createNewUser" action="">
 
-        <input class="block rounded border border-gray-100 px-3 mt-2" wire:model="name" type="text" placeholder="name">
+        <input class="rounded border border-gray-100 px-3 py-1 my-2" wire:model="name" type="text" placeholder="name">
         <br>
-        @error('name')
-        <span class="text-red-500 text-xs"> {{ $message }} </span>
-        @enderror
+        @error('name')<span class="text-xs text-red-500 block"> {{ $message }} </span>@enderror
 
-        <input class="block rounded border border-gray-100 px-3 mt-2" wire:model="email" type="email" placeholder="email">
+        <input class="rounded border border-gray-100 px-3 py-1 my-2" wire:model="email" type="email" placeholder="email">
         <br>
-        @error('email')
-        <span class="text-red-500 text-xs"> {{ $message }} </span>
-        @enderror
+        @error('email')<span class="text-xs text-red-500 block"> {{ $message }} </span>@enderror
 
-        <input class="block rounded border border-gray-100 px-3 mt-2" wire:model="password" type="password" placeholder="password">
+        <input class="rounded border border-gray-100 px-3 py-1 my-2" wire:model="password" type="password" placeholder="password">
         <br>
-        @error('password')
-        <span class="text-red-500 text-xs"> {{ $message }} </span>
-        @enderror
+        @error('password')<span class="text-xs text-red-500 block"> {{ $message }} </span>@enderror
 
-        <button class="block rounded px-3 py-1 bg-gray-400 text-white"> Create </button>
+        <button class="mt-2 px-3 py-1 bg-gray-400 rounded text-white"> Create </button>
     </form>
 
     <hr>
@@ -31,4 +25,6 @@
         {{ $user->name }}
         <hr>
     @endforeach
+        <br>
+    {{ $users->links('vendor.livewire.simple-tailwind') }}
 </div>
